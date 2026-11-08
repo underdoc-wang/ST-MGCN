@@ -67,7 +67,7 @@ class ModelTrainer(object):
 
     def test(self, data_loader:dict, sta_adj_list:list, modes:list, model_dir:str, data_class):
 
-        saved_checkpoint = torch.load(model_dir + f'/{self.model_name}_best_model.pkl')
+        saved_checkpoint = torch.load(model_dir + f'/{self.model_name}_best_model.pkl', weights_only=True)
         self.model.load_state_dict(saved_checkpoint['state_dict'])
         self.model.eval()
 
